@@ -47,40 +47,43 @@ html {
   color: var(--dark);
   background: #000;
   -webkit-tap-highlight-color: transparent;
-  overflow: hidden;
   height: 100%;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  height: 100dvh;
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
-  overscroll-behavior-y: auto;
   scroll-snap-type: y mandatory;
+  background: #000;
+}
+
+/* ── Main content (one full screen, snaps back) ────────────────────── */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  min-height: 100vh;
   background: var(--gray-bg);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
 }
 
 /* ── Easter egg (below fold) ───────────────────────────────────────── */
 .easter-egg {
   flex-shrink: 0;
-  padding: 18px 12px;
+  padding: 24px 12px;
   text-align: center;
   font-size: 0.7rem;
   font-weight: 500;
   color: #555;
   background: #000;
-  scroll-snap-align: end;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 [data-theme="dark"] .easter-egg {
   color: #666;
-}
-
-/* Main content snaps to top */
-.header {
-  scroll-snap-align: start;
 }
 
 /* ── Global focus ──────────────────────────────────────────────────── */
@@ -558,8 +561,6 @@ model-viewer.viewer--switching {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  position: sticky;
-  bottom: 0;
   margin: 12px;
   padding: 16px;
   border-radius: var(--radius);
@@ -572,7 +573,6 @@ model-viewer.viewer--switching {
   text-decoration: none;
   letter-spacing: -0.01em;
   transition: background 0.2s, transform 0.15s;
-  box-shadow: 0 4px 20px rgba(255, 205, 0, 0.35);
 }
 
 .cta:hover {
@@ -582,7 +582,7 @@ model-viewer.viewer--switching {
   transform: scale(0.98);
 }
 .cta:focus-visible {
-  box-shadow: var(--focus-ring), 0 4px 20px rgba(255, 205, 0, 0.35);
+  box-shadow: var(--focus-ring);
   border-radius: var(--radius);
 }
 
