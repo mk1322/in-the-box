@@ -104,8 +104,8 @@
   </section>
 
   <!-- CTA -->
-  <a href="https://inpoststore.com/pl-pl/produkty/" target="_blank" rel="noopener" class="cta" aria-label="Kup opakowanie w InPost Store (otwiera nową kartę)">
-    Kup opakowanie
+  <a id="cta" href="https://inpoststore.com/pl-pl/produkty/gabaryt-b" target="_blank" rel="noopener" class="cta" aria-label="Kup opakowanie w InStore (otwiera nową kartę)">
+    Kup opakowanie w InStore
   </a>
 
   <script>
@@ -128,6 +128,8 @@
         viewer.classList.remove('viewer--switching');
       }, 200);
 
+      document.getElementById('cta').href =
+        'https://inpoststore.com/pl-pl/produkty/gabaryt-' + card.dataset.gabaryt;
     }
 
     /* ── Service Worker ── */
