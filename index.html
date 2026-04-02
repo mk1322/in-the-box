@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>In-The-Box — przymierz paczkę w AR</title>
-  <meta name="description" content="Sprawdź rozmiar paczki InPost w rozszerzonej rzeczywistości. Gabaryt A, B i C — zobacz w AR zanim zamówisz.">
+  <title>In-The-Box — try parcel size in AR</title>
+  <meta name="description" content="Check InPost parcel size in augmented reality. Size A, B and C — see in AR before you order.">
   <meta name="theme-color" content="#FFCD00">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="In-The-Box — przymierz paczkę w AR">
-  <meta property="og:description" content="Sprawdź rozmiar paczki InPost w rozszerzonej rzeczywistości. Gabaryt A, B i C — zobacz w AR zanim zamówisz.">
+  <meta property="og:title" content="In-The-Box — try parcel size in AR">
+  <meta property="og:description" content="Check InPost parcel size in augmented reality. Size A, B and C — see in AR before you order.">
   <meta property="og:image" content="assets/og-image.png">
   <meta property="og:type" content="website">
 
@@ -38,11 +38,22 @@
     <h1 class="header__title" aria-label="In-The-Box">
       <svg class="header__logo" viewBox="0 0 279 51" fill="currentColor" aria-hidden="true"><path d="M0 50.1V.57h18.1V50.11H0zm24.2 0V.57h17.92l9.95 19.22h.54V.57h17.2V50.11H53.59L41.94 27.5h-.54V50.11H24.2zm53.1 0V12.23h-4.97V.57h17.15v11.66h-4.97V50.1h-7.21zm13.4 0V.57h7.22v18.5h3.54V.57h7.18V50.11h-7.18V31.39h-3.54V50.11H90.7zm20.4 0V.57h14.8v11.23h-7.58v7.78h6.33v11.02h-6.33v8.28h7.58V50.11H111.1zm18.33 0V.57h27.72c3.61 0 6.64.46 9.09 1.37 2.45.91 4.31 2.28 5.6 4.1 1.28 1.82 1.93 4.15 1.93 6.98 0 2.4-.37 4.39-1.1 5.98-.67 1.58-1.71 2.83-3.12 3.74-1.41.86-3.21 1.51-5.42 1.94v.29c2.2.38 4.04 1.01 5.51 1.87 1.47.82 2.57 2.02 3.3 3.6.8 1.58 1.19 3.7 1.19 6.34 0 2.26-.34 4.22-1.01 5.9-.67 1.63-1.71 3-3.12 4.1-1.35 1.1-3.09 1.94-5.23 2.52-2.14.53-4.71.79-7.71.79h-27.63zm18.26-10.94h3.3c1.47 0 2.51-.1 3.12-.29.61-.19.98-.62 1.1-1.3.18-.67.28-1.66.28-2.95s-.09-2.28-.28-2.95c-.12-.67-.49-1.13-1.1-1.37-.61-.24-1.65-.36-3.12-.36h-3.3v9.22zm0-18.94h3.3c1.47 0 2.51-.1 3.12-.29.61-.24.98-.67 1.1-1.3.18-.62.28-1.54.28-2.74 0-1.3-.09-2.26-.28-2.88-.12-.62-.49-1.03-1.1-1.22-.61-.19-1.65-.29-3.12-.29h-3.3v8.72zm53.84 30.46c-4.41 0-8.05-.19-10.92-.58-2.88-.43-5.17-1.18-6.88-2.23-1.65-1.06-2.91-2.54-3.76-4.46-.8-1.92-1.32-4.34-1.56-7.27-.24-2.98-.37-6.58-.37-10.8s.12-7.8.37-10.73c.24-2.98.76-5.42 1.56-7.34.86-1.92 2.11-3.41 3.76-4.46 1.71-1.06 4.01-1.78 6.88-2.16 2.88-.43 6.52-.65 10.92-.65s8.05.22 10.92.65c2.94.38 5.26 1.1 6.98 2.16 1.71 1.06 2.97 2.54 3.76 4.46.8 1.92 1.32 4.37 1.56 7.34.31 2.93.46 6.5.46 10.73s-.15 7.82-.46 10.8c-.24 2.93-.76 5.35-1.56 7.27-.8 1.92-2.05 3.41-3.76 4.46-1.71 1.05-4.04 1.8-6.98 2.23-2.88.38-6.52.58-10.92.58zm0-11.23c.98 0 1.77-.05 2.39-.14.67-.1 1.19-.36 1.56-.79.37-.48.61-1.2.73-2.16.18-1.01.28-2.4.28-4.18.06-1.78.09-4.06.09-6.84s-.03-2.78-.09-4.56c0-1.78-.09-3.14-.28-4.1-.12-1.01-.37-1.73-.73-2.16-.37-.48-.89-.77-1.56-.86-.61-.1-1.41-.14-2.39-.14s-1.77.05-2.39.14c-.61.1-1.1.38-1.47.86-.31.43-.55 1.15-.73 2.16-.18.96-.31 2.33-.37 4.1v13.68c.06 1.78.18 3.17.37 4.18.18.96.43 1.68.73 2.16.37.43.86.7 1.47.79.61.1 1.41.14 2.39.14zm23.72 10.65l14.41-24.91-14.13-24.62h20.19l6.06 14.04h.73l6.42-14.04h19.46l-14.04 24.26 14.32 25.27h-20.28l-6.33-14.62h-.92l-6.42 14.62h-19.46z"/></svg>
     </h1>
-    <p class="header__subtitle">Dopasuj gabaryt w AR</p>
+    <p class="header__subtitle" data-i18n="subtitle">Match your parcel size in AR</p>
+    <!-- Language selector -->
+    <select id="langSelect" class="lang-select" aria-label="Language" onchange="setLang(this.value)">
+      <option value="en">EN</option>
+      <option value="pl">PL</option>
+      <option value="it">IT</option>
+      <option value="fr">FR</option>
+      <option value="es">ES</option>
+      <option value="pt">PT</option>
+      <option value="nl">NL</option>
+      <option value="be">BE</option>
+    </select>
   </header>
 
   <!-- PODGLĄD 3D -->
-  <section class="viewer" aria-label="Podgląd 3D pudełka">
+  <section class="viewer" aria-label="3D preview">
     <model-viewer
       id="viewer"
       src="models/gabaryt-b.glb"
@@ -58,68 +69,93 @@
       shadow-intensity="1"
       camera-orbit="45deg 65deg 2m"
       environment-image="neutral"
-      alt="Model 3D pudełka InPost — Gabaryt B, 19 × 38 × 64 cm"
+      alt="InPost parcel 3D model — Size B, 19 × 38 × 64 cm"
     >
-      <!-- Loading skeleton -->
       <div slot="poster" class="poster-skeleton">
         <div class="poster-skeleton__shimmer"></div>
-        <p class="poster-skeleton__text">Ładowanie modelu 3D…</p>
+        <p class="poster-skeleton__text" data-i18n="loading">Loading 3D model…</p>
       </div>
-
     </model-viewer>
   </section>
 
   <!-- SELEKTOR GABARYTU -->
-  <section class="selector" aria-label="Wybierz gabaryt">
-    <div class="selector__cards" role="radiogroup" aria-label="Rozmiary gabarytów">
+  <section class="selector" aria-label="Choose size">
+    <div class="selector__cards" role="radiogroup" aria-label="Parcel sizes">
       <button class="card" role="radio" aria-checked="false"
               data-gabaryt="a" data-src="models/gabaryt-a.glb" data-ios="models/gabaryt-a.usdz"
               data-poster="assets/gabaryt-a-poster.webp"
-              data-alt="Model 3D pudełka InPost — Gabaryt A, 8 × 38 × 64 cm"
-              onclick="selectGabaryt(this)" aria-label="Gabaryt A, 8 × 38 × 64 cm, do 25 kg">
+              data-alt="InPost parcel 3D model — Size A, 8 × 38 × 64 cm"
+              onclick="selectGabaryt(this)">
         <img class="card__icon" src="assets/icon-gabaryt-a.svg" alt="" aria-hidden="true" width="40" height="40">
-        <span class="card__name">Gabaryt A</span>
+        <span class="card__name" data-i18n="sizeA">Size A</span>
         <span class="card__dims">8 × 38 × 64 cm</span>
-        <span class="card__weight">do 25 kg</span>
+        <span class="card__weight" data-i18n="weight">up to 25 kg</span>
       </button>
       <button class="card card--active" role="radio" aria-checked="true"
               data-gabaryt="b" data-src="models/gabaryt-b.glb" data-ios="models/gabaryt-b.usdz"
               data-poster="assets/gabaryt-b-poster.webp"
-              data-alt="Model 3D pudełka InPost — Gabaryt B, 19 × 38 × 64 cm"
-              onclick="selectGabaryt(this)" aria-label="Gabaryt B, 19 × 38 × 64 cm, do 25 kg">
+              data-alt="InPost parcel 3D model — Size B, 19 × 38 × 64 cm"
+              onclick="selectGabaryt(this)">
         <img class="card__icon" src="assets/icon-gabaryt-b.svg" alt="" aria-hidden="true" width="40" height="40">
-        <span class="card__name">Gabaryt B</span>
+        <span class="card__name" data-i18n="sizeB">Size B</span>
         <span class="card__dims">19 × 38 × 64 cm</span>
-        <span class="card__weight">do 25 kg</span>
+        <span class="card__weight" data-i18n="weight">up to 25 kg</span>
       </button>
       <button class="card" role="radio" aria-checked="false"
               data-gabaryt="c" data-src="models/gabaryt-c.glb" data-ios="models/gabaryt-c.usdz"
               data-poster="assets/gabaryt-c-poster.webp"
-              data-alt="Model 3D pudełka InPost — Gabaryt C, 41 × 38 × 64 cm"
-              onclick="selectGabaryt(this)" aria-label="Gabaryt C, 41 × 38 × 64 cm, do 25 kg">
+              data-alt="InPost parcel 3D model — Size C, 41 × 38 × 64 cm"
+              onclick="selectGabaryt(this)">
         <img class="card__icon" src="assets/icon-gabaryt-c.svg" alt="" aria-hidden="true" width="40" height="40">
-        <span class="card__name">Gabaryt C</span>
+        <span class="card__name" data-i18n="sizeC">Size C</span>
         <span class="card__dims">41 × 38 × 64 cm</span>
-        <span class="card__weight">do 25 kg</span>
+        <span class="card__weight" data-i18n="weight">up to 25 kg</span>
       </button>
     </div>
   </section>
 
   <!-- AR BUTTON -->
-  <button class="cta cta--dark" id="arBtn" onclick="document.getElementById('viewer').activateAR()" aria-label="Zobacz w rozszerzonej rzeczywistości">
+  <button class="cta cta--dark" id="arBtn" onclick="document.getElementById('viewer').activateAR()">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,4c0-0.55,0.45-1,1-1h2V1H4C2.35,1,1,2.35,1,4v2h2V4z"/><path d="M20,3c0.55,0,1,0.45,1,1v2h2V4c0-1.65-1.35-3-3-3h-2v2H20z"/><path d="M4,21c-0.55,0-1-0.45-1-1v-2H1v2c0,1.65,1.35,3,3,3h2v-2H4z"/><path d="M20,21c0.55,0,1-0.45,1-1v-2h2v2c0,1.65-1.35,3-3,3h-2v-2H20z"/><path d="M18.25,7.6l-5.5-3.18c-0.46-0.27-1.04-0.27-1.5,0L5.75,7.6C5.29,7.87,5,8.36,5,8.9v6.35c0,0.54,0.29,1.03,0.75,1.3l5.5,3.18c0.46,0.27,1.04,0.27,1.5,0l5.5-3.18c0.46-0.27,0.75-0.76,0.75-1.3V8.9C19,8.36,18.71,7.87,18.25,7.6z M7,14.96v-4.62l4,2.32v4.61L7,14.96z M12,10.93L8,8.61l4-2.31l4,2.31L12,10.93z M13,17.27v-4.61l4-2.32v4.62L13,17.27z"/></svg>
-    Zobacz w AR
+    <span data-i18n="viewAR">View in AR</span>
   </button>
 
   <hr class="divider">
 
   <!-- CTA -->
-  <a id="cta" href="https://inpoststore.com/pl-pl/produkty/gabaryt-b" target="_blank" rel="noopener" class="cta" aria-label="Kup opakowanie w InStore (otwiera nową kartę)">
-    Kup opakowanie w InStore
+  <a id="cta" href="https://inpoststore.com/pl-pl/produkty/gabaryt-b" target="_blank" rel="noopener" class="cta">
+    <span data-i18n="buyCTA">Buy packaging at InStore</span>
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6V8H5V19H16V14H18V20C18 20.2652 17.8946 20.5196 17.7071 20.7071C17.5196 20.8946 17.2652 21 17 21H4C3.73478 21 3.48043 20.8946 3.29289 20.7071C3.10536 20.5196 3 20.2652 3 20V7C3 6.73478 3.10536 6.48043 3.29289 6.29289C3.48043 6.10536 3.73478 6 4 6H10ZM21 3V12L17.206 8.207L11.207 14.207L9.793 12.793L15.792 6.793L12 3H21Z"/></svg>
   </a>
 
   <script>
+    /* ── i18n ── */
+    const T = {
+      en: { subtitle:"Match your parcel size in AR", sizeA:"Size A", sizeB:"Size B", sizeC:"Size C", weight:"up to 25 kg", viewAR:"View in AR", buyCTA:"Buy packaging at InStore", loading:"Loading 3D model…" },
+      pl: { subtitle:"Dopasuj gabaryt w AR", sizeA:"Gabaryt A", sizeB:"Gabaryt B", sizeC:"Gabaryt C", weight:"do 25 kg", viewAR:"Zobacz w AR", buyCTA:"Kup opakowanie w InStore", loading:"Ładowanie modelu 3D…" },
+      it: { subtitle:"Prova la dimensione del pacco in AR", sizeA:"Taglia A", sizeB:"Taglia B", sizeC:"Taglia C", weight:"fino a 25 kg", viewAR:"Vedi in AR", buyCTA:"Acquista imballaggio su InStore", loading:"Caricamento modello 3D…" },
+      fr: { subtitle:"Essayez la taille du colis en AR", sizeA:"Taille A", sizeB:"Taille B", sizeC:"Taille C", weight:"jusqu'à 25 kg", viewAR:"Voir en AR", buyCTA:"Acheter l'emballage sur InStore", loading:"Chargement du modèle 3D…" },
+      es: { subtitle:"Prueba el tamaño del paquete en AR", sizeA:"Tamaño A", sizeB:"Tamaño B", sizeC:"Tamaño C", weight:"hasta 25 kg", viewAR:"Ver en AR", buyCTA:"Comprar embalaje en InStore", loading:"Cargando modelo 3D…" },
+      pt: { subtitle:"Experimente o tamanho da encomenda em AR", sizeA:"Tamanho A", sizeB:"Tamanho B", sizeC:"Tamanho C", weight:"até 25 kg", viewAR:"Ver em AR", buyCTA:"Comprar embalagem na InStore", loading:"A carregar modelo 3D…" },
+      nl: { subtitle:"Pas de pakketmaat in AR", sizeA:"Maat A", sizeB:"Maat B", sizeC:"Maat C", weight:"tot 25 kg", viewAR:"Bekijk in AR", buyCTA:"Koop verpakking bij InStore", loading:"3D-model laden…" },
+      be: { subtitle:"Pas de pakketmaat in AR", sizeA:"Maat A", sizeB:"Maat B", sizeC:"Maat C", weight:"tot 25 kg", viewAR:"Bekijk in AR", buyCTA:"Koop verpakking bij InStore", loading:"3D-model laden…" },
+    };
+
+    function setLang(lang) {
+      const t = T[lang] || T.en;
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key]) el.textContent = t[key];
+      });
+      document.documentElement.lang = lang === 'be' ? 'nl-BE' : lang;
+      localStorage.setItem('lang', lang);
+    }
+
+    // Restore saved language
+    const savedLang = localStorage.getItem('lang') || 'en';
+    document.getElementById('langSelect').value = savedLang;
+    if (savedLang !== 'en') setLang(savedLang);
+
     /* ── Gabaryt selector ── */
     function selectGabaryt(card) {
       const prev = document.querySelector('.card--active');
@@ -128,8 +164,6 @@
       card.setAttribute('aria-checked', 'true');
 
       const viewer = document.getElementById('viewer');
-
-      // Fade-out → swap → fade-in
       viewer.classList.add('viewer--switching');
       setTimeout(() => {
         viewer.src = card.dataset.src;
