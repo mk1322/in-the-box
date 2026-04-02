@@ -207,9 +207,22 @@
       }
     });
 
-    // Restore saved language
-    const savedLang = localStorage.getItem('lang') || 'en';
-    if (savedLang !== 'en') setLang(savedLang);
+    // Detect language: saved > browser > fallback en
+    function detectLang() {
+      const saved = localStorage.getItem('lang');
+      if (saved) return saved;
+      const supported = Object.keys(T);
+      for (const navLang of navigator.languages || [navigator.language]) {
+        const code = navLang.toLowerCase();
+        if (code.startsWith('nl-be') || code === 'be') return 'be';
+        const short = code.split('-')[0];
+        if (supported.includes(short)) return short;
+      }
+      return 'en';
+    }
+
+    const initLang = detectLang();
+    setLang(initLang);
 
     /* ── Gabaryt selector ── */
     function selectGabaryt(card) {
