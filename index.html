@@ -63,10 +63,6 @@
         <p class="poster-skeleton__text">Ładowanie modelu 3D…</p>
       </div>
 
-      <button slot="ar-button" class="ar-button" aria-label="Otwórz podgląd w rozszerzonej rzeczywistości">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l-4 2.2v4.4L12 12l4-2.4V5.2z"/><path d="M4 8.6v4.4L8 15.4"/><path d="M20 8.6v4.4l-4 2.4"/><path d="M12 21v-4.4"/></svg>
-        Zobacz w AR
-      </button>
     </model-viewer>
   </section>
 
@@ -105,6 +101,12 @@
       </button>
     </div>
   </section>
+
+  <!-- AR BUTTON -->
+  <button class="cta cta--dark" id="arBtn" onclick="document.getElementById('viewer').activateAR()" aria-label="Zobacz w rozszerzonej rzeczywistości">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l-4 2.2v4.4L12 12l4-2.4V5.2z"/><path d="M4 8.6v4.4L8 15.4"/><path d="M20 8.6v4.4l-4 2.4"/><path d="M12 21v-4.4"/></svg>
+    Zobacz w AR
+  </button>
 
   <!-- CTA -->
   <a id="cta" href="https://inpoststore.com/pl-pl/produkty/gabaryt-b" target="_blank" rel="noopener" class="cta" aria-label="Kup opakowanie w InStore (otwiera nową kartę)">
