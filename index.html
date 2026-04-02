@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabaryt Picker — przymierz paczkę w AR</title>
+  <meta name="description" content="Sprawdź rozmiar paczki InPost w rozszerzonej rzeczywistości. Gabaryt A, B i C — zobacz w AR zanim zamówisz.">
+  <meta name="theme-color" content="#FFCD00">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Gabaryt Picker — przymierz paczkę w AR">
+  <meta property="og:description" content="Sprawdź rozmiar paczki InPost w rozszerzonej rzeczywistości. Gabaryt A, B i C — zobacz w AR zanim zamówisz.">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://ajax.googleapis.com">
+
+  <!-- Fonts & scripts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <h1 class="header__title">Gabaryt Picker</h1>
+    <p class="header__subtitle">Przymierz rozmiar paczki w AR</p>
+  </header>
+
+  <!-- PODGLĄD 3D -->
+  <section class="viewer" aria-label="Podgląd 3D pudełka">
+    <model-viewer
+      id="viewer"
+      src="models/gabaryt-b.glb"
+      ios-src="models/gabaryt-b.usdz"
+      poster="assets/gabaryt-b-poster.webp"
+      loading="lazy"
+      reveal="auto"
+      ar
+      ar-modes="webxr scene-viewer quick-look"
+      camera-controls
+      auto-rotate
+      shadow-intensity="1"
+      camera-orbit="45deg 65deg 2m"
+      environment-image="neutral"
+      alt="Model 3D pudełka InPost — Gabaryt B, 190 × 380 × 640 mm"
+    >
+      <!-- Loading skeleton -->
+      <div slot="poster" class="poster-skeleton">
+        <div class="poster-skeleton__shimmer"></div>
+        <p class="poster-skeleton__text">Ładowanie modelu 3D…</p>
+      </div>
+
+      <button slot="ar-button" class="ar-button" aria-label="Otwórz podgląd w rozszerzonej rzeczywistości">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l-4 2.2v4.4L12 12l4-2.4V5.2z"/><path d="M4 8.6v4.4L8 15.4"/><path d="M20 8.6v4.4l-4 2.4"/><path d="M12 21v-4.4"/></svg>
+        Zobacz w AR
+      </button>
+    </model-viewer>
+  </section>
+
+  <!-- SELEKTOR GABARYTU -->
+  <section class="selector" aria-label="Wybierz gabaryt">
+    <div class="selector__cards" role="radiogroup" aria-label="Rozmiary gabarytów">
+      <button class="card" role="radio" aria-checked="false"
+              data-gabaryt="a" data-src="models/gabaryt-a.glb" data-ios="models/gabaryt-a.usdz"
+              data-poster="assets/gabaryt-a-poster.webp"
+              data-alt="Model 3D pudełka InPost — Gabaryt A, 80 × 380 × 640 mm"
+              onclick="selectGabaryt(this)" aria-label="Gabaryt A — Płaska paczka, 80 × 380 × 640 mm">
+        <span class="card__name">Gabaryt A</span>
+        <span class="card__dims">80 × 380 × 640 mm</span>
+        <span class="card__desc">Płaska paczka</span>
+        <span class="card__weight">do 25 kg</span>
+      </button>
+      <button class="card card--active" role="radio" aria-checked="true"
+              data-gabaryt="b" data-src="models/gabaryt-b.glb" data-ios="models/gabaryt-b.usdz"
+              data-poster="assets/gabaryt-b-poster.webp"
+              data-alt="Model 3D pudełka InPost — Gabaryt B, 190 × 380 × 640 mm"
+              onclick="selectGabaryt(this)" aria-label="Gabaryt B — Średnia paczka, 190 × 380 × 640 mm">
+        <span class="card__name">Gabaryt B</span>
+        <span class="card__dims">190 × 380 × 640 mm</span>
+        <span class="card__desc">Średnia paczka</span>
+        <span class="card__weight">do 25 kg</span>
+      </button>
+      <button class="card" role="radio" aria-checked="false"
+              data-gabaryt="c" data-src="models/gabaryt-c.glb" data-ios="models/gabaryt-c.usdz"
+              data-poster="assets/gabaryt-c-poster.webp"
+              data-alt="Model 3D pudełka InPost — Gabaryt C, 410 × 380 × 640 mm"
+              onclick="selectGabaryt(this)" aria-label="Gabaryt C — Duża paczka, 410 × 380 × 640 mm">
+        <span class="card__name">Gabaryt C</span>
+        <span class="card__dims">410 × 380 × 640 mm</span>
+        <span class="card__desc">Duża paczka</span>
+        <span class="card__weight">do 25 kg</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- PORÓWNAJ LINK -->
+  <button class="compare-toggle" onclick="openCompare()" aria-label="Otwórz porównanie gabarytów">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+    Porównaj rozmiary
+  </button>
+
+  <!-- CTA -->
+  <a href="https://inpoststore.com/pl-pl/produkty/" target="_blank" rel="noopener" class="cta" aria-label="Kup opakowanie w InPost Store (otwiera nową kartę)">
+    Kup opakowanie
+  </a>
+
+  <!-- BOTTOM SHEET: Porównaj gabaryty -->
+  <div class="sheet-backdrop" id="sheetBackdrop" onclick="closeCompare()" aria-hidden="true"></div>
+  <div class="sheet" id="sheet" role="dialog" aria-label="Porównanie gabarytów" aria-modal="true">
+    <div class="sheet__handle" onclick="closeCompare()" aria-label="Zamknij porównanie"><span></span></div>
+    <h2 class="sheet__title">Porównaj gabaryty</h2>
+
+    <div class="compare">
+      <div class="compare__item" data-gabaryt="a">
+        <div class="compare__box-wrap">
+          <svg class="compare__box" viewBox="0 0 234 150" width="234" height="150" aria-hidden="true">
+            <rect x="0" y="121" width="234" height="29" rx="3"
+                  fill="#C4A777" stroke="#B89960" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span class="compare__name">Gabaryt A</span>
+        <span class="compare__dims">80 × 380 × 640 mm</span>
+        <span class="compare__desc">Płaska paczka</span>
+      </div>
+
+      <div class="compare__item" data-gabaryt="b">
+        <div class="compare__box-wrap">
+          <svg class="compare__box" viewBox="0 0 234 150" width="234" height="150" aria-hidden="true">
+            <rect x="0" y="80" width="234" height="70" rx="3"
+                  fill="#C4A777" stroke="#B89960" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span class="compare__name">Gabaryt B</span>
+        <span class="compare__dims">190 × 380 × 640 mm</span>
+        <span class="compare__desc">Średnia paczka</span>
+      </div>
+
+      <div class="compare__item" data-gabaryt="c">
+        <div class="compare__box-wrap">
+          <svg class="compare__box" viewBox="0 0 234 150" width="234" height="150" aria-hidden="true">
+            <rect x="0" y="0" width="234" height="150" rx="3"
+                  fill="#C4A777" stroke="#B89960" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span class="compare__name">Gabaryt C</span>
+        <span class="compare__dims">410 × 380 × 640 mm</span>
+        <span class="compare__desc">Duża paczka</span>
+      </div>
+    </div>
+
+    <button class="sheet__close" onclick="closeCompare()" aria-label="Zamknij porównanie">Zamknij</button>
+  </div>
+
+  <script>
+    /* ── Gabaryt selector ── */
+    function selectGabaryt(card) {
+      const prev = document.querySelector('.card--active');
+      if (prev) { prev.classList.remove('card--active'); prev.setAttribute('aria-checked', 'false'); }
+      card.classList.add('card--active');
+      card.setAttribute('aria-checked', 'true');
+
+      const viewer = document.getElementById('viewer');
+
+      // Fade-out → swap → fade-in
+      viewer.classList.add('viewer--switching');
+      setTimeout(() => {
+        viewer.src = card.dataset.src;
+        viewer.setAttribute('ios-src', card.dataset.ios);
+        viewer.setAttribute('poster', card.dataset.poster);
+        viewer.setAttribute('alt', card.dataset.alt);
+        viewer.classList.remove('viewer--switching');
+      }, 200);
+
+      highlightCompare(card.dataset.gabaryt);
+    }
+
+    /* ── Compare sheet ── */
+    const sheet    = document.getElementById('sheet');
+    const backdrop = document.getElementById('sheetBackdrop');
+
+    function openCompare() {
+      const active = document.querySelector('.card--active');
+      if (active) highlightCompare(active.dataset.gabaryt);
+
+      sheet.classList.add('sheet--open');
+      backdrop.classList.add('sheet-backdrop--visible');
+      sheet.querySelector('.sheet__close').focus();
+    }
+
+    function closeCompare() {
+      sheet.classList.remove('sheet--open');
+      backdrop.classList.remove('sheet-backdrop--visible');
+      document.querySelector('.compare-toggle').focus();
+    }
+
+    function highlightCompare(id) {
+      document.querySelectorAll('.compare__item').forEach(el => {
+        el.classList.toggle('compare__item--active', el.dataset.gabaryt === id);
+      });
+    }
+
+    /* Close on Escape */
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && sheet.classList.contains('sheet--open')) closeCompare();
+    });
+
+    /* Swipe down to close */
+    let touchStartY = 0;
+    sheet.addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, { passive: true });
+    sheet.addEventListener('touchend', e => {
+      if (e.changedTouches[0].clientY - touchStartY > 80) closeCompare();
+    }, { passive: true });
+
+    /* ── Service Worker ── */
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    }
+  </script>
+
+</body>
+</html>
