@@ -357,6 +357,14 @@ model-viewer.viewer--switching {
   border-radius: var(--radius);
 }
 
+/* ── Divider ───────────────────────────────────────────────────────── */
+.divider {
+  border: none;
+  height: 1px;
+  background: var(--gray-light);
+  margin: 0 12px;
+}
+
 /* ── CTA button (sticky na dole) ───────────────────────────────────── */
 .cta {
   display: flex;
