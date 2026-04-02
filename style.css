@@ -45,16 +45,42 @@
 html {
   font-family: "Archivo", system-ui, -apple-system, sans-serif;
   color: var(--dark);
-  background: var(--gray-bg);
+  background: #000;
   -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  height: 100%;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100dvh;
-  min-height: 100vh;
+  height: 100dvh;
+  height: 100vh;
+  overflow-y: auto;
   overflow-x: hidden;
+  overscroll-behavior-y: auto;
+  scroll-snap-type: y mandatory;
+  background: var(--gray-bg);
+}
+
+/* ── Easter egg (below fold) ───────────────────────────────────────── */
+.easter-egg {
+  flex-shrink: 0;
+  padding: 18px 12px;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #555;
+  background: #000;
+  scroll-snap-align: end;
+}
+[data-theme="dark"] .easter-egg {
+  color: #666;
+}
+
+/* Main content snaps to top */
+.header {
+  scroll-snap-align: start;
 }
 
 /* ── Global focus ──────────────────────────────────────────────────── */
