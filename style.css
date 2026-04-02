@@ -137,10 +137,9 @@ body {
 }
 
 /* ── Theme toggle ──────────────────────────────────────────────────── */
-.theme-toggle {
+.theme-toggle, .info-btn {
   position: absolute;
   top: 14px;
-  left: 12px;
   z-index: 20;
   display: flex;
   align-items: center;
@@ -154,10 +153,13 @@ body {
   cursor: pointer;
   transition: border-color 0.2s;
 }
-.theme-toggle:hover {
+.theme-toggle { left: 12px; }
+.info-btn { left: 50px; }
+
+.theme-toggle:hover, .info-btn:hover {
   border-color: var(--card-border-hover);
 }
-.theme-toggle:focus-visible {
+.theme-toggle:focus-visible, .info-btn:focus-visible {
   box-shadow: var(--focus-ring);
   border-radius: 8px;
 }
@@ -195,6 +197,33 @@ body {
   font-weight: 400;
   color: var(--gray-text);
   margin-top: 2px;
+}
+
+/* ── Credit overlay ────────────────────────────────────────────────── */
+.credit-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.credit-overlay--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.credit-overlay__text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  padding: 20px 32px;
 }
 
 /* ── Viewer AR button (on the 3D preview) ──────────────────────────── */
