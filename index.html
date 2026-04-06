@@ -76,7 +76,7 @@
       loading="lazy"
       reveal="auto"
       ar
-      ar-modes="scene-viewer quick-look"
+      ar-modes="webxr scene-viewer quick-look"
       ar-scale="fixed"
       ar-placement="floor"
       scale="1 1 1"
@@ -137,10 +137,7 @@
   </section>
 
   <!-- AR BUTTON -->
-  <!-- Hidden Quick Look link for iOS -->
-  <a id="iosArLink" rel="ar" href="models/gabaryt-b.usdz#allowsContentScaling=0" style="display:none"><img></a>
-
-  <button class="cta cta--dark" id="arBtn" onclick="launchAR()">
+  <button class="cta cta--dark" id="arBtn" onclick="document.getElementById('viewer').activateAR()">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,4c0-0.55,0.45-1,1-1h2V1H4C2.35,1,1,2.35,1,4v2h2V4z"/><path d="M20,3c0.55,0,1,0.45,1,1v2h2V4c0-1.65-1.35-3-3-3h-2v2H20z"/><path d="M4,21c-0.55,0-1-0.45-1-1v-2H1v2c0,1.65,1.35,3,3,3h2v-2H4z"/><path d="M20,21c0.55,0,1-0.45,1-1v-2h2v2c0,1.65-1.35,3-3,3h-2v-2H20z"/><path d="M18.25,7.6l-5.5-3.18c-0.46-0.27-1.04-0.27-1.5,0L5.75,7.6C5.29,7.87,5,8.36,5,8.9v6.35c0,0.54,0.29,1.03,0.75,1.3l5.5,3.18c0.46,0.27,1.04,0.27,1.5,0l5.5-3.18c0.46-0.27,0.75-0.76,0.75-1.3V8.9C19,8.36,18.71,7.87,18.25,7.6z M7,14.96v-4.62l4,2.32v4.61L7,14.96z M12,10.93L8,8.61l4-2.31l4,2.31L12,10.93z M13,17.27v-4.61l4-2.32v4.62L13,17.27z"/></svg>
     <span data-i18n="viewAR">View in AR</span>
   </button>
@@ -279,32 +276,45 @@
 
       document.getElementById('cta').href =
         'https://inpoststore.com/pl-pl/produkty/gabaryt-' + card.dataset.gabaryt;
-
-      // Update iOS AR link
-      document.getElementById('iosArLink').href =
-        card.dataset.ios + '#allowsContentScaling=0';
     }
 
-    /* ── Custom AR launcher (bypasses model-viewer, enforces no-scale) ── */
-    function launchAR() {
-      const viewer = document.getElementById('viewer');
-      const glbSrc = new URL(viewer.src, location.href).href;
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+    /* ── Lock scale at 1:1 during AR (every frame) ── */
+    (function() {
+      const v = document.getElementById('viewer');
+      let arActive = false;
+      let rafId = null;
 
-      if (isIOS) {
-        // Quick Look with scaling disabled
-        document.getElementById('iosArLink').click();
-      } else {
-        // Scene Viewer with resizable=false
-        const intent = 'intent://arvr.google.com/scene-viewer/1.0?' +
-          'file=' + encodeURIComponent(glbSrc) +
-          '&mode=ar_preferred' +
-          '&resizable=false' +
-          '#Intent;scheme=https;package=com.google.android.googlequicksearchbox;' +
-          'action=android.intent.action.VIEW;end;';
-        location.href = intent;
+      function lockScale() {
+        // Force scale on the model-viewer element
+        if (v.scale !== '1 1 1') v.scale = '1 1 1';
+
+        // Also force on the internal Three.js scene
+        try {
+          const model = v.model;
+          if (model && (model.scale.x !== 1 || model.scale.y !== 1 || model.scale.z !== 1)) {
+            model.scale.set(1, 1, 1);
+          }
+        } catch(e) {}
+
+        if (arActive) rafId = requestAnimationFrame(lockScale);
       }
-    }
+
+      v.addEventListener('ar-status', (e) => {
+        if (e.detail.status === 'session-started') {
+          arActive = true;
+          lockScale();
+        } else {
+          arActive = false;
+          if (rafId) cancelAnimationFrame(rafId);
+          v.scale = '1 1 1';
+        }
+      });
+
+      // Block pinch gestures on the model-viewer during AR
+      v.addEventListener('touchmove', (e) => {
+        if (arActive && e.touches.length >= 2) e.preventDefault();
+      }, { passive: false });
+    })();
 
     /* ── Service Worker ── */
     if ('serviceWorker' in navigator) {
