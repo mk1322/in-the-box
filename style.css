@@ -625,7 +625,7 @@ model-viewer.viewer--switching {
   gap: 8px;
   position: sticky;
   bottom: 0;
-  margin: 12px 12px 56px;
+  margin: 12px;
   padding: 16px;
   border-radius: var(--radius);
   background: var(--yellow);
@@ -649,6 +649,11 @@ model-viewer.viewer--switching {
 .cta:focus-visible {
   box-shadow: var(--focus-ring), 0 4px 20px rgba(255, 205, 0, 0.35);
   border-radius: var(--radius);
+}
+
+/* InStore CTA bottom spacing */
+#cta {
+  margin-bottom: 56px;
 }
 
 /* Dark variant (AR button) */
