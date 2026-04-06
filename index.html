@@ -78,6 +78,8 @@
       ar
       ar-modes="webxr scene-viewer quick-look"
       ar-scale="fixed"
+      ar-placement="floor"
+      scale="1 1 1"
       camera-controls
       auto-rotate
       shadow-intensity="1"
@@ -272,6 +274,10 @@
       document.getElementById('cta').href =
         'https://inpoststore.com/pl-pl/produkty/gabaryt-' + card.dataset.gabaryt;
     }
+
+    /* ── Enforce fixed scale in AR ── */
+    const mv = document.getElementById('viewer');
+    mv.addEventListener('ar-status', () => { mv.scale = '1 1 1'; });
 
     /* ── Service Worker ── */
     if ('serviceWorker' in navigator) {
