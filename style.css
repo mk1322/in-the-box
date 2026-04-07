@@ -264,6 +264,45 @@ body {
   border-radius: 8px;
 }
 
+.credit-overlay__url-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1.5px solid var(--gray-light);
+  border-radius: 8px;
+  background: var(--gray-bg);
+}
+
+.credit-overlay__url {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gray-text);
+  user-select: all;
+}
+
+.credit-overlay__copy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: var(--gray-text);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+.credit-overlay__copy:hover {
+  color: var(--dark);
+}
+
+.credit-overlay__check-icon {
+  color: #22c55e;
+}
+
 .credit-overlay__author {
   font-size: 0.7rem;
   font-weight: 600;

@@ -159,6 +159,13 @@
       <hr class="credit-overlay__divider">
       <p class="credit-overlay__qr-label" data-i18n="shareQR">Share with others using QR code</p>
       <img class="credit-overlay__qr" src="assets/qr-code.png" alt="QR code" width="160" height="160">
+      <div class="credit-overlay__url-row">
+        <span class="credit-overlay__url" id="siteUrl">mk1322.github.io/in-the-box</span>
+        <button class="credit-overlay__copy" onclick="copyUrl()" aria-label="Copy URL" data-i18n-aria="copyLabel">
+          <svg class="credit-overlay__copy-icon" id="copyIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <svg class="credit-overlay__check-icon" id="checkIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M20 6L9 17l-5-5"/></svg>
+        </button>
+      </div>
       <p class="credit-overlay__author">Vibecoded by Marcin Krupiński :)</p>
       <p class="credit-overlay__author">&copy;2026</p>
       <button class="credit-overlay__close" onclick="hideCredit()" data-i18n="infoClose">Close</button>
@@ -169,6 +176,16 @@
     /* ── Credit ── */
     function showCredit() {
       document.getElementById('creditOverlay').classList.add('credit-overlay--visible');
+    }
+    function copyUrl() {
+      navigator.clipboard.writeText('https://mk1322.github.io/in-the-box/').then(() => {
+        document.getElementById('copyIcon').style.display = 'none';
+        document.getElementById('checkIcon').style.display = 'block';
+        setTimeout(() => {
+          document.getElementById('copyIcon').style.display = 'block';
+          document.getElementById('checkIcon').style.display = 'none';
+        }, 2000);
+      });
     }
     function hideCredit() {
       document.getElementById('creditOverlay').classList.remove('credit-overlay--visible');
