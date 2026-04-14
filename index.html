@@ -201,6 +201,8 @@
 
     function applyTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
+      document.querySelector('meta[name="theme-color"]').content =
+        theme === 'dark' ? '#121212' : '#F5F5F3';
       localStorage.setItem('theme', theme);
     }
 
